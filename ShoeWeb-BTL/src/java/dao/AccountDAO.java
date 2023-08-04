@@ -18,31 +18,15 @@ import java.util.List;
  */
 public class AccountDAO extends DBContextSQL {
 
-    public boolean checkLogin2(String username, String password) {
-        boolean isValid = false;
-        String sql = "SELECT * FROM dbo.account WHERE user = ? AND pass = ?";
-        try ( PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, username);
-            statement.setString(2, password);
-            try ( ResultSet resultSet = statement.executeQuery()) {
-                isValid = resultSet.next(); // Nếu có dòng kết quả thì thông tin đăng nhập hợp lệ
-            }
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-
-        return isValid;
-    }
-
     public Account checkLogin(String user, String pass) {
-        String query = "select * from account where user =? and pass =?";
+        String query = "select * from account where [user] =? and [pass] =?";
         try {
             PreparedStatement st = connection.prepareStatement(query);
             st.setString(1, user);
             st.setString(2, pass);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                return new Account(
+                Account a = new Account(
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -52,6 +36,8 @@ public class AccountDAO extends DBContextSQL {
                         rs.getString(7),
                         rs.getString(8)
                 );
+                
+                return a;
             }
 
         } catch (SQLException e) {
@@ -86,7 +72,7 @@ public class AccountDAO extends DBContextSQL {
 
     public Account checkAccountExist(String user) {
         String query = "select * from account\n"
-                + "where user = ?";
+                + "where [user] = ?";
         try {
             PreparedStatement st = connection.prepareStatement(query);
             st.setString(1, user);
@@ -213,22 +199,18 @@ public class AccountDAO extends DBContextSQL {
 
     public static void main(String[] args) {
         AccountDAO acc = new AccountDAO();
-        String user = "hoangduong";
-        String pass = "123456";
+        String user = "admin";
+        String pass = "123";
         
 //        System.out.println(acc.checkLogin2(user, pass));
-        Account a = acc.checkAccountExist(user);
+        Account a = acc.getAccountById("2");
         if(a!= null){
             System.out.println(a.getName());
-
         }
 
-//        Account a = acc.checkLogin(user, pass);
-//        if (a == null) {
-//            System.out.println("ïsEmpty");
-//        } else {
-//            System.out.println(a.getName());
-//
+//        List<Account> list = acc.getAllAccount();
+//        for (Account account : list) {
+//            System.out.println(account.getName());
 //        }
 
     }
