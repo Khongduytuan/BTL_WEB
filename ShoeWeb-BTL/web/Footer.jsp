@@ -13,7 +13,7 @@
                         <h5>About</h5>
                         <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                         <p class="mb-0">
-                            Web bán giày bài tập lớn môn Lập trình Web
+                            Web bán quần áo bài tập lớn môn Lập trình Web
                         </p>
                     </div>
 
@@ -21,10 +21,9 @@
                         <h5>Informations</h5>
                         <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                         <ul class="list-unstyled">
-                            <li><a href="https://www.facebook.com/hoangduongngg">FaceBook</a></li>
-                            <li><a type="https://www.instagram.com/hoangduongngg" href="">Instagram</a></li>
-                            <li><a href="https://github.com/hoangduongngg">Github</a></li>
-                            <li><a href="https://www.behance.net/hoangduongnguyen">Behance</a></li>
+                            <li><a href="">FaceBook</a></li>
+                            <li><a type="" href="">Instagram</a></li>
+                            <li><a href="">Github</a></li>
                         </ul>
                     </div>
 
@@ -34,7 +33,6 @@
                         <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                         <ul class="list-unstyled">
                             <li><i class="fa fa-home mr-2"></i> Shoe Web</li>
-                            <li><i class="fa fa-envelope mr-2"></i>hoangduong@gmail.com</li>
                             <li><i class="fa fa-phone mr-2"></i>0123456789</li>
                             <li><i class="fa fa-print mr-2"></i>0123456789</li>
                         </ul>

@@ -125,7 +125,7 @@ public class AccountDAO extends DBContextSQL {
 
     // Sign Up: Them Account moi vao Database
     public void signUp(Account account) {
-        String query = "insert into account (user, pass, isSell, isAdmin, name, address, phone)\n"
+        String query = "insert into account ([user], [pass], [isSell], [isAdmin], [name], [address], [phone])\n"
                 + "values (?, ?, 0, 0, ?, ?, ?)"; //0,0 : not Seller, not Admin => Normal User
         try {
             PreparedStatement st = connection.prepareStatement(query);
